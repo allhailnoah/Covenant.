@@ -1,6 +1,5 @@
 require "requirer"
 require "game"
-require "ending"
 require "menu"
 
 function love.load()
