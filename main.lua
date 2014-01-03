@@ -1,65 +1,40 @@
-require "requirer"
-require "game"
-require "menu"
+require 'req'
 
 function love.load()
-	gamestate = menu
-	paused = false
-	pausedopac = 0
-	maxframe = 0.2
+	statechange(gamestates['splash'])
 end
 
 function love.update(dt)
-	if start then
-		gamestate = game
-	end
-	if not paused then
-		gamestate.update(dt)
-		if love.keyboard.isDown("escape") then
-			love.event.quit()
-		end
-	end
+	gamestate:update(dt)
 end
 
 function love.draw()
-	gamestate.draw()
-	love.graphics.setColor(0,0,0,pausedopac)
-	love.graphics.rectangle("fill", 0, 0, love.graphics:getWidth(), love.graphics:getHeight())
-	love.graphics.setColor(255,255,255,255)
+	gamestate:draw()
 end
 
 function love.mousepressed(x, y, button)
-	if gamestate.mousepressed then
-		gamestate.mousepressed(x, y, button)
-	end
+	gamestate:mousepressed(x, y, button)
 end
 
 function love.mousereleased(x, y, button)
-	if gamestate.mousereleased then
-		gamestate.mousereleased(x, y, button)
-	end
+	gamestate:mousereleased(x, y, button)
 end
 
 function love.keypressed(key, unicode)
-	if gamestate.keypressed then
-		gamestate.keypressed(key)
+	if key == "escape" then
+		if gamestate ~= gamestates['menu'] then
+			statechange(gamestates['menu'])
+		else
+			love.event.quit()
+		end
 	end
+	gamestate:keypressed(key)
 end
 
 function love.keyreleased(key)
-	if gamestate.keyreleased then
-		gamestate.keyreleased(key)
-	end
+	gamestate:keyreleased(key)
 end
 
-function love.focus(f)
-	if gamestate~=menu then
-		if not f then
-			pausedopac = 170
-			paused = true
-		else
-			pausedopac = 0
-			paused = false
-	  	end
-	end
+function statechange(state)
+	gamestate = state
 end
