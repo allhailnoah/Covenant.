@@ -23,7 +23,7 @@ end
 function love.keypressed(key, unicode)
 	if key == "escape" then
 		if gamestate ~= gamestates['menu'] then
-			statechange(gamestates['menu'])
+			statechange(gamestate:getEscapeState())
 		else
 			love.event.quit()
 		end
