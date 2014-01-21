@@ -28,6 +28,14 @@ function State:mousereleased(x, y, button)
 
 end
 
+function State:onresume()
+
+end
+
+function State:onpause()
+
+end
+
 function State:getEscapeState()
 	return gamestates['menu']
 end
