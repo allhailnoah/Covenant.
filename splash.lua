@@ -32,6 +32,11 @@ function FimichiSplash:draw()
 		statechange(gamestates['menu'])
 	end
 	love.graphics.draw(self.sp[x])
+	if self.delta>7 and self.delta<10 then
+		love.graphics.setColor(0,0,0,255-(10-self.delta)/3*255)
+		love.graphics.rectangle("fill",0,0,800,600)
+		love.graphics.setColor(255,255,255,255)
+	end
 end
 
 function FimichiSplash:update(dt)
