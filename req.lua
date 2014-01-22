@@ -8,4 +8,4 @@ require 'game'
 gamestates = {}
 gamestates['splash'] = FimichiSplash:new()
 gamestates['menu'] = MenuState:new()
-gamestates['gate'] = GameplayState:new()
+gamestates['game'] = GameplayState:new()
