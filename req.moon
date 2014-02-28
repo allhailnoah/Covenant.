@@ -22,9 +22,9 @@ require 'menu'
 print "[req] Creating menu entries list"
 menus = {}
 print "[req] Adding Red Pill to menu entries"
-menus[1] = MenuEntry "Learn", "game", {255, 0, 0, 255}
+menus[1] = MenuEntry "Learn", "game", {255, 0, 0, 255}, {150, 150, 150, 20}, 300, 300, 200, 20
 print "[req] Adding Blue Pill to menu entries"
-menus[2] = MenuEntry "Leave", "quit", {0, 0, 255, 255}
+menus[2] = MenuEntry "Leave", "quit", {0, 0, 255, 255}, {150, 150, 150, 20}, 300, 400, 200, 20
 print "[req] Building menu state"
 st\add "menu", MenuState menus
 
