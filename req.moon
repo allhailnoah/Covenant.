@@ -4,6 +4,9 @@ require 'font'
 print "[req] Creating FontManager"
 export f = FontManager!
 
+print "[req] Importing classes"
+require 'obj'
+
 print "[req] Loading state management"
 require 'state'
 print "[req] Creating StateManager"

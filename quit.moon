@@ -1,8 +1,8 @@
 print "[quit] Preparing quit trigger"
 export class QuitState extends State
-	update = (dt) =>
+	update: (dt) =>
 		print "[quit] Quitting from update function"
-		love.event.quit()
-	draw = =>
+		love.event.quit!
+	draw: =>
 		print "[quit] Quitting from draw function"
-		love.event.quit()
+		love.event.quit!
